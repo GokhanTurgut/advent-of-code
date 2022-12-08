@@ -21,18 +21,11 @@ outcome_translation = {
 def calculate_score(opponent, player)
   return 3 if opponent == player
 
-  if opponent == :rock
-    return 6 if player == :paper
-    return 0 if player == :scissors
-  end
-  if opponent == :paper
-    return 6 if player == :scissors
-    return 0 if player == :rock
-  end
-  if opponent == :scissors
-    return 6 if player == :rock
-    return 0 if player == :paper
-  end
+  score = 0
+  score = 6 if opponent == :rock && player == :paper
+  score = 6 if opponent == :paper && player == :scissors
+  score = 6 if opponent == :scissors && player == :rock
+  score
 end
 
 def shape_chooser(opponent, outcome)
